@@ -1,0 +1,284 @@
+@import '@fontsource-variable/bricolage-grotesque/wght.css';
+@import '@fontsource-variable/inter/wght.css';
+@import '@fontsource-variable/jetbrains-mono/wght.css';
+@import 'tailwindcss';
+
+/* ------------------------------------------------------------------
+   Design tokens: "engineering paper"
+   Light, warm paper surfaces · ink typography · one signal accent.
+   Domain hues are used only for small markers (dots, rules, tags).
+------------------------------------------------------------------- */
+@theme {
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-paper: #f6f5f1;
+  --color-paper-2: #efede7;
+  --color-surface: #ffffff;
+  --color-ink: #0e1217;
+  --color-ink-2: #373d46;
+  --color-ink-3: #5b626c;
+  --color-ink-4: #646a73;
+  --color-line: #e2dfd7;
+  --color-line-2: #cdc9bf;
+
+  /* Text on inverted (bg-ink) and domain-colored surfaces, and the inverted hover */
+  --color-on-ink: #ffffff;
+  --color-ink-hover: #1d242d;
+  --color-scrim: rgb(14 18 23 / 0.25);
+
+  /* Hero portrait studio backdrop */
+  --color-portrait: #e2dfd7;
+  --color-portrait-glow: #ffffff;
+
+  /* Code excerpts */
+  --color-code-bg: #fbfaf7;
+  --color-code-str: #0b7a57;
+  --color-code-num: #a3410e;
+  --color-code-kw: #7a3fd1;
+  --color-code-fn: #1f4fd1;
+
+  /* Background textures */
+  --color-grid: rgb(14 18 23 / 0.045);
+  --color-dot: rgb(14 18 23 / 0.12);
+
+  --color-signal: #e8541c;
+  --color-signal-ink: #b93d0c;
+  --color-signal-soft: #fdebe2;
+
+  --color-platform: #2c56e0;
+  --color-platform-soft: #e7edfd;
+  --color-markets: #087a56;
+  --color-markets-soft: #e1f4ec;
+  --color-ai: #6d43e6;
+  --color-ai-soft: #eee8fd;
+  --color-auto: #9c5c00;
+  --color-auto-soft: #fbf0dc;
+
+  --shadow-card: 0 1px 0 rgb(14 18 23 / 0.04), 0 1px 2px rgb(14 18 23 / 0.06), 0 8px 24px -12px rgb(14 18 23 / 0.12);
+  --shadow-lift: 0 1px 0 rgb(14 18 23 / 0.04), 0 2px 4px rgb(14 18 23 / 0.06), 0 24px 48px -20px rgb(14 18 23 / 0.22);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ------------------------------------------------------------------
+   Dark theme: set by the inline script in index.html and the nav toggle.
+   Every text token keeps at least 4.5:1 (WCAG AA) on paper, paper-2 and surface.
+------------------------------------------------------------------- */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --color-paper: #111315;
+  --color-paper-2: #16191c;
+  --color-surface: #1b1e22;
+  --color-ink: #edebe6;
+  --color-ink-2: #c9cacd;
+  --color-ink-3: #a3a8af;
+  --color-ink-4: #8f949c;
+  --color-line: #2b2f35;
+  --color-line-2: #3b4048;
+
+  --color-signal: #ff7440;
+  --color-signal-ink: #ff8a5c;
+  --color-signal-soft: #3b2117;
+
+  --color-platform: #86a2ff;
+  --color-platform-soft: #1c2440;
+  --color-markets: #4ccda1;
+  --color-markets-soft: #12302a;
+  --color-ai: #ae92ff;
+  --color-ai-soft: #251d40;
+  --color-auto: #e3a94c;
+  --color-auto-soft: #33270f;
+
+  --color-on-ink: #111315;
+  --color-ink-hover: #d6d4cf;
+  --color-scrim: rgb(0 0 0 / 0.6);
+
+  --color-portrait: #262a30;
+  --color-portrait-glow: #4a515b;
+
+  --color-code-bg: #15181b;
+  --color-code-str: #5fd3a5;
+  --color-code-num: #ff9e70;
+  --color-code-kw: #bea3ff;
+  --color-code-fn: #8eacff;
+
+  --color-grid: rgb(255 255 255 / 0.035);
+  --color-dot: rgb(255 255 255 / 0.09);
+
+  --shadow-card: 0 1px 0 rgb(0 0 0 / 0.3), 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px -12px rgb(0 0 0 / 0.6);
+  --shadow-lift: 0 1px 0 rgb(0 0 0 / 0.3), 0 2px 4px rgb(0 0 0 / 0.45), 0 24px 48px -20px rgb(0 0 0 / 0.75);
+}
+
+@layer base {
+  :root {
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-signal-soft);
+    color: var(--color-ink);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-signal-ink);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 1240px;
+    margin-inline: auto;
+    padding-inline: 20px;
+  }
+  @media (min-width: 768px) {
+    .container-x {
+      padding-inline: 32px;
+    }
+  }
+
+  /* Mono eyebrow label used across sections */
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-ink-3);
+  }
+
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 18px;
+    box-shadow: var(--shadow-card);
+  }
+
+  /* Fine engineering-paper grid */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, var(--color-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-grid) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  .bg-dots {
+    background-image: radial-gradient(var(--color-dot) 1px, transparent 1px);
+    background-size: 18px 18px;
+  }
+
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid var(--color-line);
+    background: var(--color-surface);
+    border-radius: 999px;
+    padding: 3px 10px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-ink-2);
+    white-space: nowrap;
+  }
+
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.35s var(--ease-out-expo);
+  }
+  .link-underline:hover,
+  .link-underline:focus-visible {
+    background-size: 100% 1px;
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Packet animation along SVG paths (pipeline + hero) */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.flow-line {
+  stroke-dasharray: 4 8;
+  animation: dash-flow 1.2s linear infinite;
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.45;
+    transform: scale(0.8);
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 2.4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+.caret {
+  animation: caret 1s steps(1) infinite;
+}

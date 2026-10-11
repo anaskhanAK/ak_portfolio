@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Anas Khan | AI & Full Stack Engineer</title>
+    <meta
+      name="description"
+      content="Anas Khan is Team Lead for Python & AI at Tassaract. He builds FastAPI and Flask backends, trading and automation bots, and applied-AI pipelines (OpenAI fine-tuning, NER, OCR). Case studies drawn from real code."
+    />
+    <meta name="author" content="Anas Khan" />
+    <meta name="theme-color" content="#f6f5f1" />
+    <meta name="color-scheme" content="light dark" />
+    <script>
+      // Apply the theme before first paint (saved choice, else the system setting) to avoid a flash.
+      ;(function () {
+        var t
+        try {
+          t = localStorage.getItem('theme')
+        } catch (e) {}
+        if (t !== 'light' && t !== 'dark') t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.setAttribute('data-theme', t)
+        if (t === 'dark') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#111315')
+      })()
+    </script>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" as="image" href="/img/anas-cutout-640.avif" type="image/avif" imagesrcset="/img/anas-cutout-400.avif 400w, /img/anas-cutout-640.avif 640w" imagesizes="400px" />
+
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Anas Khan | AI & Full Stack Engineer" />
+    <meta
+      property="og:description"
+      content="Backends, market bots and AI pipelines that turn messy input into decisions. 15 systems, explained from the code."
+    />
+    <meta property="og:image" content="%SITE_URL%/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Anas Khan | AI & Full Stack Engineer" />
+    <meta property="profile:first_name" content="Anas" />
+    <meta property="profile:last_name" content="Khan" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Anas Khan | AI & Full Stack Engineer" />
+    <meta name="twitter:description" content="Backends, market bots and AI pipelines that turn messy input into decisions." />
+    <meta name="twitter:image" content="%SITE_URL%/og-image.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Anas Khan",
+        "jobTitle": "Team Lead, Python & AI",
+        "worksFor": { "@type": "Organization", "name": "Tassaract" },
+        "email": "mailto:anaskhankin1999@gmail.com",
+        "telephone": "+92-349-5112722",
+        "address": { "@type": "PostalAddress", "addressCountry": "PK" },
+        "hasCredential": {
+          "@type": "EducationalOccupationalCredential",
+          "name": "AIC: Artificial Intelligence",
+          "recognizedBy": { "@type": "Organization", "name": "Presidential Initiative for Artificial Intelligence and Computing (PIAIC)" }
+        },
+        "knowsAbout": ["Python", "FastAPI", "Flask", "Django", "PostgreSQL", "OpenAI API", "LLM fine-tuning", "Named-entity recognition", "OpenCV", "Selenium", "Web scraping", "Trading bots", "Docker"]
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <p style="font-family: system-ui, sans-serif; padding: 24px">
+        Anas Khan, Team Lead for Python &amp; AI at Tassaract. Email: anaskhankin1999@gmail.com. This site needs JavaScript for its interactive case studies;
+        the resume is available at <a href="/resume_anas_khan_AI_Fullstack_2pgs.pdf">/resume_anas_khan_AI_Fullstack_2pgs.pdf</a>.
+      </p>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+services:
+  portfolio:
+    build:
+      context: .
+      args:
+        SITE_URL: ${SITE_URL:-}
+    image: anas-khan-portfolio:latest
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
