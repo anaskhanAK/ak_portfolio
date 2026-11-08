@@ -3,12 +3,15 @@ import { m, useInView, useReducedMotion } from 'motion/react'
 import { Check, Eye, FileText, ScanText, X } from 'lucide-react'
 import { domains, type Project } from '../data/projects'
 import { cn } from '../lib/cn'
+import { AgentGraph } from './AgentGraph'
 
 /* Small, evidence-based visuals that stand in for screenshots. Every number is from the repo. */
 
 
 export function ProjectVisual({ project, compact = false }: { project: Project; compact?: boolean }) {
   switch (project.slug) {
+    case 'researchcrew':
+      return <AgentGraph compact={compact} />
     case 'nichetrx':
       return <Lifecycle color={domains.platform.color} compact={compact} />
     case 'support-gpt':

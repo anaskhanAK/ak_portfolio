@@ -23,7 +23,7 @@ export default function App() {
   useEffect(() => {
     document.title = project
       ? `${project.short} case study | Anas Khan`
-      : 'Anas Khan | AI & Full Stack Engineer'
+      : 'Anas Khan | Full Stack ML Engineer'
   }, [project])
 
   return (

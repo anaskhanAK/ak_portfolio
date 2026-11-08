@@ -21,11 +21,11 @@ function usageFor(techId: string): Usage[] {
       return null
     })
     .filter((x): x is Usage => Boolean(x))
-    .sort((a, b) => Number(b.project.featured) - Number(a.project.featured) || b.project.date.localeCompare(a.project.date))
+    .sort((a, b) => Number(b.project.featured) - Number(a.project.featured) || (b.project.date ?? '').localeCompare(a.project.date ?? ''))
 }
 
 export function Stack({ onOpenProject }: { onOpenProject: (slug: string) => void }) {
-  const [selected, setSelected] = useState('fastapi')
+  const [selected, setSelected] = useState('langgraph')
   const detailRef = useRef<HTMLDivElement>(null)
   const select = (id: string) => {
     setSelected(id)
@@ -43,7 +43,6 @@ export function Stack({ onOpenProject }: { onOpenProject: (slug: string) => void
     <section id="stack" className="scroll-mt-24 border-y border-line bg-surface py-20 md:py-28" aria-labelledby="stack-title">
       <div className="container-x">
         <SectionHeader
-          index="04"
           label="Stack"
           title={<span id="stack-title">Technologies, and where they actually do the work</span>}
           intro="No skill bars or percentages. Pick a technology to see where it is used and what it does there. The number counts the systems and roles that use it."
@@ -70,22 +69,25 @@ export function Stack({ onOpenProject }: { onOpenProject: (slug: string) => void
                             onClick={() => select(t.id)}
                             aria-pressed={isSel}
                             className={cn(
-                              'flex h-9 items-center gap-2 rounded-full border pr-1.5 pl-3.5 text-[13.5px] transition-all',
+                              'flex h-9 items-center gap-2 rounded-full border pl-3.5 text-[13.5px] transition-all',
+                              count > 0 ? 'pr-1.5' : 'pr-3.5',
                               isSel
                                 ? 'border-ink bg-ink text-on-ink shadow-[var(--shadow-card)]'
                                 : 'border-line bg-paper/70 text-ink-2 hover:border-line-2 hover:bg-surface hover:text-ink',
                             )}
                           >
                             {t.name}
-                            <span
-                              className={cn(
-                                'grid h-6 min-w-6 place-items-center rounded-full px-1.5 font-mono text-[11px]',
-                                isSel ? 'bg-on-ink/15 text-on-ink' : 'bg-surface text-ink-3',
-                              )}
-                              aria-label={`Used in ${count} ${count === 1 ? 'place' : 'places'}`}
-                            >
-                              {count}
-                            </span>
+                            {count > 0 && (
+                              <span
+                                className={cn(
+                                  'grid h-6 min-w-6 place-items-center rounded-full px-1.5 font-mono text-[11px]',
+                                  isSel ? 'bg-on-ink/15 text-on-ink' : 'bg-surface text-ink-3',
+                                )}
+                                aria-label={`Used in ${count} ${count === 1 ? 'place' : 'places'}`}
+                              >
+                                {count}
+                              </span>
+                            )}
                           </button>
                         </li>
                       )
@@ -109,7 +111,7 @@ export function Stack({ onOpenProject }: { onOpenProject: (slug: string) => void
                     <p className="eyebrow">{techGroups.find((g) => g.id === tech.group)?.label}</p>
                     <p className="mt-2 font-display text-[2rem] leading-none font-semibold tracking-tight text-ink">{tech.name}</p>
                     <p className="mt-2 text-[14px] text-ink-3">
-                      Used{' '}
+                      {!tech.work && usage.length === 0 ? 'On my resume’s skills list; not tied to a project here yet.' : 'Used '}
                       {tech.work && (
                         <>
                           at <span className="font-medium text-ink">{profile.company}</span>

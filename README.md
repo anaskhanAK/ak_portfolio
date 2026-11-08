@@ -1,6 +1,6 @@
 # Anas Khan's portfolio
 
-A light-themed, single-page portfolio with deep-linkable case studies. It is built from an audit of the source code in `../profile_details/`.
+A single-page portfolio with deep-linkable case studies, in a navy-and-gold theme (light and dark). Fifteen case studies come from an audit of source code; the three agentic-AI ones (ResearchCrew, Web3 Trading Agent, Career Metro Mapping AI) come from the resume's project descriptions.
 
 **Stack:** React 19 · TypeScript · Vite 8 · Tailwind CSS 4 · Motion (lazy-loaded) · Lucide icons · self-hosted variable fonts (Bricolage Grotesque, Inter, JetBrains Mono).
 
@@ -45,16 +45,17 @@ docker run -d -p 8080:8080 --name portfolio anas-khan-portfolio
 | File | What it controls |
 |---|---|
 | `src/data/profile.ts` | Name, role, contact, **LinkedIn/GitHub links (empty until verified URLs are added)**, roles and bullets |
-| `src/data/projects.ts` | All 15 projects: problem, solution, pipeline stages, decisions, stack roles, stats, code excerpts |
+| `src/data/projects.ts` | The 15 code-audited projects: problem, solution, pipeline stages, decisions, stack roles, stats, code excerpts |
 | `src/data/tech.ts` | Technology catalog and groups (the Stack section is derived from project data) |
-| `scripts/resume/content.mjs` | The resume text (PDF and DOCX are generated from it) |
+| `src/data/projects.agentic.ts` | The three agentic-AI case studies (no commit dates, repos or code excerpts) |
+| `src/data/resume.ts` | The resume text the site reads: title, summary, skills, roles, education |
+| `public/Anas_Khan_Resume.pdf` | The downloadable resume. Replace it together with `resume.ts` and `public/img/resume-preview.webp` |
 
 Every factual statement traces back to the code; see `../PROJECT_INVENTORY.md` and `../resume/RESUME_AUDIT.md`.
 
 ## Generated assets
 
 ```bash
-npm run resume     # resume PDF + DOCX (fails if the PDF exceeds 2 pages) + preview image
 npm run assets     # public/og-image.png and apple-touch-icon.png
 ```
 
@@ -70,9 +71,9 @@ node scripts/qa-sections.mjs ./qa-out 1440   # full-height screenshots per secti
 
 ## Design system
 
-- **Surfaces:** paper `#f6f5f1`, surface `#ffffff`, paper-2 `#efede7`; fine borders `#e2dfd7` / `#cdc9bf`.
-- **Ink:** `#0e1217` (17:1 on paper), ink-2 `#373d46` (10:1), ink-3 `#5b626c` (5.6:1), ink-4 `#686e77` (4.7:1). All text tokens pass WCAG AA.
-- **Accent:** one signal orange: `#e8541c` for marks only, `#b93d0c` for text (5.2:1).
-- **Domain hues** (markers only): platforms `#2c56e0`, applied AI `#6d43e6`, markets `#087a56`, automation `#9c5c00`.
+- **Surfaces:** paper `#f4f5f9`, surface `#ffffff`, paper-2 `#eceef5`; fine borders `#dfe2ee` / `#c6cbdc`.
+- **Ink:** deep navy `#0c1233`, ink-2 `#333a5c`, ink-3 `#565c7a`, ink-4 `#5d6384`. Text tokens are chosen to pass WCAG AA on paper and surface.
+- **Accent:** one gold, the same pairing as the resume: `#d9961a` for marks only, `#8a5700` for text.
+- **Domain hues** (markers only): platforms `#2c56e0`, applied AI `#6d43e6`, markets `#087a56`, automation `#b0306a`.
 - **Type:** Bricolage Grotesque for display, Inter for body, JetBrains Mono for labels and code.
 - **Motion:** reveal on scroll, a live system trace, a pipeline walkthrough, layout transitions, and a scroll-filled architecture spine in case studies. All of it respects `prefers-reduced-motion`; autoplay stops when off-screen or paused.

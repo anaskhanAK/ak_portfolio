@@ -14,10 +14,9 @@ export function Experience({ onOpenProject }: { onOpenProject: (slug: string) =>
     <section id="experience" className="scroll-mt-24 py-20 md:py-28" aria-labelledby="experience-title">
       <div className="container-x">
         <SectionHeader
-          index="05"
           label="Experience"
           title={<span id="experience-title">Three roles, one company, and the code along the way</span>}
-          intro={`Since 2019 at ${profile.company}: promoted from Full Stack Developer to Senior, then to leading the Python & AI team. Pick a role to see what it covered and the projects that use the same skills.`}
+          intro={`Since 2019 at ${profile.company}: from Full Stack Developer to Full Stack ML Engineer, and now leading the Python & AI team. Pick a role to see what it covered and the projects that use the same skills.`}
         />
 
         {/* Role selector: vertical list on mobile, a row of three from md up */}

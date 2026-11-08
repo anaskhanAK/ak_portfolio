@@ -48,7 +48,7 @@ const stackCount = await page.evaluate(() => document.querySelectorAll('#stack [
 check('stack shows Selenium usage', stackTitle === 'Selenium' && stackCount === 3, `${stackTitle} (${stackCount})`)
 
 // Experience role switch
-await page.evaluate(() => [...document.querySelectorAll('#experience button[aria-pressed]')].find((b) => b.textContent.includes('Full Stack Developer') && !b.textContent.includes('Senior'))?.click())
+await page.evaluate(() => [...document.querySelectorAll('#experience button[aria-pressed]')].find((b) => b.textContent.trim().endsWith('Full Stack Developer'))?.click())
 await sleep(500)
 const emptyMsg = await page.evaluate(() => document.querySelector('#experience')?.textContent.includes('No code from this period'))
 check('experience: earliest role shows no-code message', emptyMsg)

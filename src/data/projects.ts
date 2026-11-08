@@ -2,6 +2,8 @@
 // profile_details/*.zip. Numbers are counted from the code or data in the repositories.
 // Client names are intentionally anonymised. No secrets, hosts or personal data appear here.
 
+import { agenticProjects } from './projects.agentic'
+
 export type DomainId = 'platform' | 'ai' | 'markets' | 'automation'
 
 export const domains: Record<DomainId, { label: string; short: string; color: string; soft: string; blurb: string }> = {
@@ -51,10 +53,12 @@ export type Project = {
   slug: string
   name: string
   short: string
-  repo: string
+  /** Source repository name, when the case study was written from the code. */
+  repo?: string
   domain: DomainId
   alsoIn?: DomainId[]
-  date: string // last commit, YYYY-MM
+  /** Last commit, YYYY-MM. Left out when the case study comes from a project write-up. */
+  date?: string
   kind: string
   featured: boolean
   tagline: string
@@ -69,11 +73,12 @@ export type Project = {
   stack: { tech: string; role: string }[]
   outcome: string
   snippet?: { file: string; caption: string; code: string }
-  evidence: string[]
+  evidence?: string[]
   note?: string
 }
 
 export const projects: Project[] = [
+  ...agenticProjects,
   // ───────────────────────────── FEATURED ─────────────────────────────
   {
     slug: 'nichetrx',
@@ -1203,7 +1208,8 @@ export function projectsUsingTech(techId: string) {
     .filter((x) => x.use || x.project.pipeline.some((s) => s.tech.includes(techId)))
 }
 
-export function formatMonth(ym: string) {
+export function formatMonth(ym?: string) {
+  if (!ym) return ''
   const [y, m] = ym.split('-').map(Number)
   return new Date(Date.UTC(y, m - 1, 1)).toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' })
 }

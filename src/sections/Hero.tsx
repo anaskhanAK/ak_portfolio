@@ -9,10 +9,10 @@ import { projects } from '../data/projects'
 const ease = [0.16, 1, 0.3, 1] as const
 
 const proof = [
-  { value: '6+ yrs', label: 'at Tassaract, promoted twice to Team Lead' },
+  { value: '5+ yrs', label: 'at Tassaract, from Full Stack Developer to Team Lead' },
   { value: String(projects.length), label: 'systems in this portfolio, across 4 domains' },
+  { value: '6', label: 'agents in the ResearchCrew LangGraph pipeline' },
   { value: '96', label: 'API endpoints in the NicheTRX backend' },
-  { value: '26,006', label: 'eBay listings run through an NER pipeline' },
 ]
 
 export function Hero({ onOpenProject }: { onOpenProject: (slug: string) => void }) {
@@ -36,7 +36,7 @@ export function Hero({ onOpenProject }: { onOpenProject: (slug: string) => void 
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -top-40 right-[-10%] -z-10 size-[620px] rounded-full bg-[radial-gradient(circle,rgb(232_84_28/0.10),transparent_65%)]"
+        className="pointer-events-none absolute -top-40 right-[-10%] -z-10 size-[620px] rounded-full bg-[radial-gradient(circle,rgb(217_150_26/0.14),transparent_65%)]"
         aria-hidden
       />
 
@@ -68,9 +68,7 @@ export function Hero({ onOpenProject }: { onOpenProject: (slug: string) => void 
             transition={{ duration: 0.9, delay: 0.15, ease }}
             className="mt-6 max-w-[34ch] font-display text-[clamp(1.45rem,2.7vw,2.15rem)] leading-[1.18] font-medium tracking-[-0.02em] text-ink"
           >
-            I build the systems behind real operations:{' '}
-            <span className="text-platform">marketplaces</span>, <span className="text-markets">market bots</span> and{' '}
-            <span className="text-ai">AI pipelines</span> that turn messy input into decisions and then act on them.
+            I build full stack products and agentic AI systems that research, decide and act.
           </m.p>
 
           <m.p
@@ -79,8 +77,11 @@ export function Hero({ onOpenProject }: { onOpenProject: (slug: string) => void 
             transition={{ duration: 0.9, delay: 0.25, ease }}
             className="mt-5 max-w-[58ch] text-[1.03rem] leading-relaxed text-ink-2"
           >
-            Six years at {profile.company}, from Full Stack Developer to leading the Python &amp; AI team. Independently, I
-            designed and built NicheTRX, a freight marketplace backend with five roles, live tracking and Stripe payments.
+            5+ years at {profile.company}, from Full Stack Developer to leading the Python &amp; AI team. One project to start with is{' '}
+            <button type="button" onClick={() => onOpenProject('researchcrew')} className="link-underline font-medium text-ink">
+              ResearchCrew
+            </button>
+            , six LangGraph agents that write a cited research report and fact-check it against its own sources.
           </m.p>
 
           <m.div

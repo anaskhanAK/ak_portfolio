@@ -69,7 +69,6 @@ export function Approach({ onOpenProject }: { onOpenProject: (slug: string) => v
     <section id="approach" className="scroll-mt-24 py-20 md:py-28" aria-labelledby="approach-title">
       <div className="container-x">
         <SectionHeader
-          index="03"
           label="Approach"
           title={<span id="approach-title">How I turn a problem into a system</span>}
           intro="Six moves I keep making. Each one is shown with a real example from the code."

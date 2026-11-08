@@ -4,8 +4,7 @@
 @import 'tailwindcss';
 
 /* ------------------------------------------------------------------
-   Design tokens: "engineering paper"
-   Light, warm paper surfaces · ink typography · one signal accent.
+   Design tokens: deep navy ink, cool paper and one gold accent (the same pair the resume uses).
    Domain hues are used only for small markers (dots, rules, tags).
 ------------------------------------------------------------------- */
 @theme {
@@ -13,39 +12,39 @@
   --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  --color-paper: #f6f5f1;
-  --color-paper-2: #efede7;
+  --color-paper: #f4f5f9;
+  --color-paper-2: #eceef5;
   --color-surface: #ffffff;
-  --color-ink: #0e1217;
-  --color-ink-2: #373d46;
-  --color-ink-3: #5b626c;
-  --color-ink-4: #646a73;
-  --color-line: #e2dfd7;
-  --color-line-2: #cdc9bf;
+  --color-ink: #0c1233;
+  --color-ink-2: #333a5c;
+  --color-ink-3: #565c7a;
+  --color-ink-4: #5d6384;
+  --color-line: #dfe2ee;
+  --color-line-2: #c6cbdc;
 
   /* Text on inverted (bg-ink) and domain-colored surfaces, and the inverted hover */
   --color-on-ink: #ffffff;
-  --color-ink-hover: #1d242d;
-  --color-scrim: rgb(14 18 23 / 0.25);
+  --color-ink-hover: #1b2350;
+  --color-scrim: rgb(12 18 51 / 0.25);
 
   /* Hero portrait studio backdrop */
-  --color-portrait: #e2dfd7;
+  --color-portrait: #dfe3f1;
   --color-portrait-glow: #ffffff;
 
   /* Code excerpts */
-  --color-code-bg: #fbfaf7;
+  --color-code-bg: #f8f9fd;
   --color-code-str: #0b7a57;
   --color-code-num: #a3410e;
   --color-code-kw: #7a3fd1;
   --color-code-fn: #1f4fd1;
 
   /* Background textures */
-  --color-grid: rgb(14 18 23 / 0.045);
-  --color-dot: rgb(14 18 23 / 0.12);
+  --color-grid: rgb(12 18 51 / 0.045);
+  --color-dot: rgb(12 18 51 / 0.12);
 
-  --color-signal: #e8541c;
-  --color-signal-ink: #b93d0c;
-  --color-signal-soft: #fdebe2;
+  --color-signal: #d9961a;
+  --color-signal-ink: #8a5700;
+  --color-signal-soft: #fbefd2;
 
   --color-platform: #2c56e0;
   --color-platform-soft: #e7edfd;
@@ -53,11 +52,11 @@
   --color-markets-soft: #e1f4ec;
   --color-ai: #6d43e6;
   --color-ai-soft: #eee8fd;
-  --color-auto: #9c5c00;
-  --color-auto-soft: #fbf0dc;
+  --color-auto: #b0306a;
+  --color-auto-soft: #fbe6ef;
 
-  --shadow-card: 0 1px 0 rgb(14 18 23 / 0.04), 0 1px 2px rgb(14 18 23 / 0.06), 0 8px 24px -12px rgb(14 18 23 / 0.12);
-  --shadow-lift: 0 1px 0 rgb(14 18 23 / 0.04), 0 2px 4px rgb(14 18 23 / 0.06), 0 24px 48px -20px rgb(14 18 23 / 0.22);
+  --shadow-card: 0 1px 0 rgb(12 18 51 / 0.03), 0 1px 2px rgb(12 18 51 / 0.05), 0 10px 28px -16px rgb(12 18 51 / 0.14);
+  --shadow-lift: 0 1px 0 rgb(12 18 51 / 0.03), 0 2px 4px rgb(12 18 51 / 0.05), 0 28px 56px -24px rgb(12 18 51 / 0.26);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -69,37 +68,37 @@
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  --color-paper: #111315;
-  --color-paper-2: #16191c;
-  --color-surface: #1b1e22;
-  --color-ink: #edebe6;
-  --color-ink-2: #c9cacd;
-  --color-ink-3: #a3a8af;
-  --color-ink-4: #8f949c;
-  --color-line: #2b2f35;
-  --color-line-2: #3b4048;
+  --color-paper: #0a0f24;
+  --color-paper-2: #0f1530;
+  --color-surface: #121a38;
+  --color-ink: #eceefa;
+  --color-ink-2: #c5c9e0;
+  --color-ink-3: #9fa5c6;
+  --color-ink-4: #8a90b3;
+  --color-line: #222b52;
+  --color-line-2: #333e6c;
 
-  --color-signal: #ff7440;
-  --color-signal-ink: #ff8a5c;
-  --color-signal-soft: #3b2117;
+  --color-signal: #f2b43c;
+  --color-signal-ink: #f5c05a;
+  --color-signal-soft: #3a2d0f;
 
   --color-platform: #86a2ff;
-  --color-platform-soft: #1c2440;
+  --color-platform-soft: #1a2447;
   --color-markets: #4ccda1;
-  --color-markets-soft: #12302a;
+  --color-markets-soft: #10302b;
   --color-ai: #ae92ff;
   --color-ai-soft: #251d40;
-  --color-auto: #e3a94c;
-  --color-auto-soft: #33270f;
+  --color-auto: #f08cb4;
+  --color-auto-soft: #3a182c;
 
-  --color-on-ink: #111315;
-  --color-ink-hover: #d6d4cf;
+  --color-on-ink: #0a0f24;
+  --color-ink-hover: #d4d7ea;
   --color-scrim: rgb(0 0 0 / 0.6);
 
-  --color-portrait: #262a30;
-  --color-portrait-glow: #4a515b;
+  --color-portrait: #1a2244;
+  --color-portrait-glow: #3a4678;
 
-  --color-code-bg: #15181b;
+  --color-code-bg: #0e1430;
   --color-code-str: #5fd3a5;
   --color-code-num: #ff9e70;
   --color-code-kw: #bea3ff;
@@ -185,12 +184,12 @@
     }
   }
 
-  /* Mono eyebrow label used across sections */
+  /* Small sentence-case label used above headings and inside cards */
   .eyebrow {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0;
     color: var(--color-ink-3);
   }
 

@@ -16,7 +16,7 @@ export function Work({ onOpenProject }: { onOpenProject: (slug: string) => void 
 
   const featured = useMemo(() => projects.filter((p) => p.featured && inDomain(p, filter)), [filter])
   const more = useMemo(
-    () => projects.filter((p) => !p.featured && inDomain(p, filter)).sort((a, b) => b.date.localeCompare(a.date)),
+    () => projects.filter((p) => !p.featured && inDomain(p, filter)).sort((a, b) => (b.date ?? '').localeCompare(a.date ?? '')),
     [filter],
   )
 
@@ -33,7 +33,6 @@ export function Work({ onOpenProject }: { onOpenProject: (slug: string) => void 
     <section id="work" className="scroll-mt-24 py-20 md:py-28" aria-labelledby="work-title">
       <div className="container-x">
         <SectionHeader
-          index="01"
           label="Selected work"
           title={<span id="work-title">Problems first. Then the system.</span>}
           intro="Each project starts with something that didn’t work: a booking that stalls between phone calls, a watchlist someone updates by hand, listings nobody can compare. Each one ends with software that handles it. Every detail here comes from the code itself."
@@ -116,8 +115,8 @@ function Meta({ project }: { project: Project }) {
         <span className="size-1.5 rounded-full" style={{ background: d.color }} aria-hidden />
         {d.label}
       </span>
-      <span>{formatMonth(project.date)}</span>
-      <span className="hidden sm:inline">· {project.kind}</span>
+      {project.date && <span>{formatMonth(project.date)}</span>}
+      <span className={project.date ? 'hidden sm:inline' : ''}>{project.date ? '· ' : ''}{project.kind}</span>
     </p>
   )
 }
@@ -209,7 +208,7 @@ function IndexRow({ project, onOpen }: { project: Project; onOpen: () => void })
         onClick={onOpen}
         className="group grid w-full grid-cols-[1fr_auto] items-start gap-x-6 gap-y-2 py-5 text-left transition-colors hover:bg-surface/60 md:grid-cols-[96px_1.3fr_1fr_auto] md:items-center md:px-3"
       >
-        <span className="order-2 col-span-2 font-mono text-[12px] text-ink-3 md:order-none md:col-span-1">{formatMonth(project.date)}</span>
+        <span className="order-2 col-span-2 font-mono text-[12px] text-ink-3 md:order-none md:col-span-1">{project.date ? formatMonth(project.date) : '—'}</span>
         <span className="min-w-0">
           <span className="flex items-center gap-2">
             <span className="size-2 shrink-0 rounded-full" style={{ background: d.color }} aria-hidden />

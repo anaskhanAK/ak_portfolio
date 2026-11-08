@@ -1,5 +1,5 @@
 import { m } from 'motion/react'
-import { Download, ExternalLink, FileText } from 'lucide-react'
+import { Download, ExternalLink } from 'lucide-react'
 import { ButtonLink } from '../components/Button'
 import { SectionHeader } from '../components/SectionHeader'
 import { profile, roles, skills, summary } from '../data/profile'
@@ -9,10 +9,9 @@ export function ResumeSection() {
     <section id="resume" className="scroll-mt-24 border-y border-line bg-surface py-20 md:py-28" aria-labelledby="resume-title">
       <div className="container-x">
         <SectionHeader
-          index="06"
           label="Resume"
-          title={<span id="resume-title">The two-page version</span>}
-          intro="The same story as this site, in a format that suits recruiters and applicant-tracking systems: one column, plain text and standard headings."
+          title={<span id="resume-title">The full resume</span>}
+          intro="The same roles, skills and projects as this site, as a two-page PDF you can download or send on."
         />
 
         <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-[minmax(0,7fr)_minmax(0,5fr)] lg:gap-14">
@@ -46,11 +45,8 @@ export function ResumeSection() {
               <ButtonLink href={profile.resumePdf} target="_blank" rel="noopener" variant="secondary" icon={<ExternalLink className="size-4" aria-hidden />}>
                 View in browser
               </ButtonLink>
-              <ButtonLink href={profile.resumeDocx} download variant="ghost" icon={<FileText className="size-4" aria-hidden />}>
-                Word (.docx)
-              </ButtonLink>
             </div>
-            <p className="mt-4 font-mono text-[12px] text-ink-3">Updated October 2026 · 2 pages · A4</p>
+            <p className="mt-4 font-mono text-[12px] text-ink-3">PDF · 2 pages · A4</p>
           </div>
 
           <m.a

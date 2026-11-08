@@ -8,7 +8,6 @@
     "build": "tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-    "resume": "node scripts/resume/build.mjs",
     "assets": "node scripts/generate-assets.mjs",
     "qa": "node scripts/qa.mjs ./qa-out",
     "qa:interactions": "node scripts/qa-interactions.mjs"

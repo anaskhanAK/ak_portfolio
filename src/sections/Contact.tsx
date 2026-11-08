@@ -8,7 +8,7 @@ import { domains } from '../data/projects'
 const fits = [
   { d: domains.platform, t: 'A product with several kinds of users', b: 'Roles, approvals, payments, uploads and live updates, in one backend that keeps them consistent.' },
   { d: domains.automation, t: 'A workflow that should run without anyone watching', b: 'Inboxes, sites, spreadsheets and screens turned into a worker with rules, retries and a record of what it did.' },
-  { d: domains.ai, t: 'An AI feature that has to work on your own data', b: 'Extraction, cleaning, prompts or fine-tuning, and the plumbing that makes the model one dependable stage.' },
+  { d: domains.ai, t: 'An AI agent or LLM feature that works on your own data', b: 'Agents with tool calling, extraction, prompts or fine-tuning, and the plumbing that makes the model one dependable stage.' },
   { d: domains.markets, t: 'A market bot you can actually trust', b: 'Exchange, DEX or broker APIs with fee-aware logic, risk gates, alerts and an audit trail.' },
 ]
 
@@ -29,10 +29,9 @@ export function Contact() {
       <div className="bg-grid pointer-events-none absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_70%_60%_at_50%_40%,black,transparent_75%)]" aria-hidden />
       <div className="container-x">
         <Reveal>
-          <p className="eyebrow mb-5 flex items-center gap-3">
-            <span className="text-signal-ink">07</span>
-            <span className="h-px w-8 bg-line-2" aria-hidden />
-            <span>Contact</span>
+          <p className="mb-5 flex items-center gap-2.5 text-[13.5px] font-medium text-ink-2">
+            <span className="h-4 w-1 rounded-full bg-signal" aria-hidden />
+            Contact
           </p>
           <h2 id="contact-title" className="max-w-[18ch] text-[clamp(2.4rem,6.4vw,5rem)] leading-[0.98] font-semibold tracking-[-0.035em] text-ink">
             Turn a manual process into a system that runs.

@@ -174,8 +174,8 @@ export default function CaseStudy({ project, onClose, onNavigate }: Props) {
                     {d.label}
                   </span>
                   <span>{project.kind}</span>
-                  <span>· last commit {formatMonth(project.date)}</span>
-                  <span className="hidden md:inline">· repo: {project.repo}</span>
+                  {project.date && <span>· last commit {formatMonth(project.date)}</span>}
+                  {project.repo && <span className="hidden md:inline">· repo: {project.repo}</span>}
                 </p>
                 <h2 id="cs-title" className="mt-5 max-w-[22ch] text-[clamp(2rem,5vw,3.6rem)] leading-[1.02] font-semibold tracking-[-0.03em] text-ink">
                   {project.name}
@@ -260,16 +260,18 @@ export default function CaseStudy({ project, onClose, onNavigate }: Props) {
                     </li>
                   ))}
                 </ul>
-                <div className="mt-5 flex flex-wrap items-center gap-2">
-                  <span className="eyebrow mr-1 flex items-center gap-1.5">
-                    <FileCode2 className="size-3.5" aria-hidden /> Evidence
-                  </span>
-                  {project.evidence.map((f) => (
-                    <code key={f} className="rounded-md border border-line bg-surface px-2 py-0.5 font-mono text-[11.5px] text-ink-2">
-                      {f}
-                    </code>
-                  ))}
-                </div>
+                {project.evidence && project.evidence.length > 0 && (
+                  <div className="mt-5 flex flex-wrap items-center gap-2">
+                    <span className="eyebrow mr-1 flex items-center gap-1.5">
+                      <FileCode2 className="size-3.5" aria-hidden /> Evidence
+                    </span>
+                    {project.evidence.map((f) => (
+                      <code key={f} className="rounded-md border border-line bg-surface px-2 py-0.5 font-mono text-[11.5px] text-ink-2">
+                        {f}
+                      </code>
+                    ))}
+                  </div>
+                )}
               </Section>
 
               {/* Outcome */}

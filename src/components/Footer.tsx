@@ -33,7 +33,7 @@ export function Footer() {
       </div>
       <div className="container-x flex flex-col gap-1 border-t border-line py-5 font-mono text-[11.5px] text-ink-3 sm:flex-row sm:justify-between">
         <span>© {YEAR} {profile.name}</span>
-        <span>Project details are drawn from the source code</span>
+        <span>Case studies come from source code and project write-ups</span>
       </div>
     </footer>
   )

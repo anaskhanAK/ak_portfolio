@@ -44,7 +44,6 @@ export function Systems({ onOpenProject }: { onOpenProject: (slug: string) => vo
       <div className="bg-dots pointer-events-none absolute inset-0 opacity-50 [mask-image:linear-gradient(to_bottom,black,transparent_60%)]" aria-hidden />
       <div className="container-x relative" ref={ref}>
         <SectionHeader
-          index="02"
           label="Systems"
           title={<span id="systems-title">Different tools. The same spine.</span>}
           intro="Almost everything I build has the same five stages: ingest, understand, decide, act and observe. Pick a system and step through it. Each stage shows what really happens in the code."

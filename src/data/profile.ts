@@ -1,8 +1,8 @@
 // Personal/profile facts. Title, roles, education and certification are read from the resume
-// source (scripts/resume/content.mjs), so the site always matches the downloadable resume.
+// source (src/data/resume.ts), so the site always matches the downloadable resume.
 // Social links are intentionally empty: none were present in the source material.
 // Add verified URLs here and they will appear in the hero, contact and footer automatically.
-import { resume } from '../../scripts/resume/content.mjs'
+import { resume } from './resume'
 
 const [headline, role] = resume.title.split(' · ')
 const [education, certification] = resume.education
@@ -16,8 +16,7 @@ export const profile = {
   phoneDisplay: '0349-5112722',
   phoneHref: 'tel:+923495112722',
   location: 'Pakistan · PKT (UTC+5)',
-  resumePdf: '/resume_anas_khan_AI_Fullstack_2pgs.pdf',
-  resumeDocx: '/resume_anas_khan_AI_Fullstack_2pgs.docx',
+  resumePdf: '/Anas_Khan_Resume.pdf',
   links: {
     linkedin: '',
     github: '',
@@ -44,12 +43,15 @@ export type Role = {
 // Portfolio-only extras for each resume role, in resume order (newest first).
 // `related`: each project appears under exactly one role, and only where it is plausible for that era:
 // its tech existed then (GPT-3.5 fine-tuning from Aug 2023, Jupiter/Birdeye and Bright Data from 2023)
-// and it fits the seniority. No crypto or LLM work before the Senior role.
+// and it fits the seniority. No crypto or LLM work before the Full Stack ML Engineer role.
 const roleExtras = [
   {
     id: 'lead',
-    focus: ['Team leadership', 'Python', 'AI / LLM', 'Bots & automation'],
+    focus: ['Team leadership', 'Agentic AI', 'LangGraph', 'Python', 'Bots & automation'],
     related: [
+      { slug: 'researchcrew', via: 'Multi-agent workflow built with LangGraph' },
+      { slug: 'web3-trading-agent', via: 'Multi-agent AI with tool calling and Web3' },
+      { slug: 'career-metro-map', via: 'LLM feature inside a business application' },
       { slug: 'nichetrx', via: 'Full stack Python platform, end to end' },
       { slug: 'creator-paywall', via: 'Python backend with computer vision' },
       { slug: 'solana-bot-suite', via: 'Arbitrage bots on live prices' },
@@ -59,8 +61,8 @@ const roleExtras = [
     ],
   },
   {
-    id: 'senior',
-    focus: ['Flask / Django', 'Scraping', 'Bots', 'OpenAI API', 'React'],
+    id: 'ml',
+    focus: ['Flask / Django', 'FastAPI', 'Scraping', 'Bots', 'OpenAI API', 'Machine learning'],
     related: [
       { slug: 'support-gpt', via: 'OpenAI-powered support chatbot' },
       { slug: 'ndis-report-generator', via: 'OpenAI inside a business application' },
